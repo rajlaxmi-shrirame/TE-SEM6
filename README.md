@@ -21,3 +21,15 @@ open localhost:9870 <br>
 hadoop fs -put input.txt  /31445/input <br>
 hadoop jar abc.jar  /31445/input  /31445/output <br>
 hadoop dfs  -cat  /31445/output/*  <br>
+
+for scala : 
+
+val data=sc.textFile("input.txt") <br>
+data.collect; <br>
+val splitdata = data.flatMap(line => line.split(" "));  <br>
+splitdata.collect; <br>
+val mapdata = splitdata.map(word => (word,1));  <br> 
+mapdata.collect;  <br>
+val reducedata = mapdata.reduceByKey(_+_);  <br>
+reducedata.collect; <br>
+
