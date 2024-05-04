@@ -10,14 +10,14 @@ Data Science and Big Data Analysis Lab<br>
 
 For Hadoop : 
 
-cd hadoop
-start-dfs.sh
-start-yarn.sh
-jps
+cd hadoop <br>
+start-dfs.sh <br>
+start-yarn.sh <br>
+jps <br>
 
-hadoop fs -mkdir  /31445
-3)hadoop fs -mkdir  /31445/input 
-open localhost:9870
-hadoop fs -put input.txt  /31445/input 
-hadoop jar abc.jar  /31445/input  /31445/output
-hadoop dfs  -cat  /31445/output/* 
+hadoop fs -mkdir  /31445 <br>
+3)hadoop fs -mkdir  /31445/input  <br>
+open localhost:9870 <br>
+hadoop fs -put input.txt  /31445/input <br>
+hadoop jar abc.jar  /31445/input  /31445/output <br>
+hadoop dfs  -cat  /31445/output/*  <br>
