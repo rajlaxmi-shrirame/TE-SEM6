@@ -1,0 +1,38 @@
+<apex:page controller="MarkSheetGenerator">
+    <apex:form>
+        <apex:pageBlock title="Enter Student Information">
+            <apex:pageMessages />
+            <apex:pageBlockSection>
+                <apex:inputText value="{!studentName}" label="Student Name"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <apex:inputText value="{!mathMarks}" label="Math Marks"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <apex:inputText value="{!scienceMarks}" label="Science Marks"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <apex:inputText value="{!englishMarks}" label="English Marks"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons>
+                <apex:commandButton action="{!generateMarkSheet}" value="Generate Mark Sheet"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:outputPanel rendered="{!message != ''}">
+            <apex:pageBlock title="Mark Sheet">
+                <apex:outputText escape="false" value="{!message}" />
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+
+    <!-- Display previous student data -->
+    <apex:pageBlock title="Previous Students">
+        <apex:pageBlockTable value="{!previousStudents}" var="student">
+            <apex:column headerValue="Student Name" value="{!student.name}" />
+            <apex:column headerValue="Math Marks" value="{!student.mathMarks}" />
+            <apex:column headerValue="Science Marks" value="{!student.scienceMarks}" />
+            <apex:column headerValue="English Marks" value="{!student.englishMarks}" />
+            <apex:column headerValue="Total Marks" value="{!student.totalMarks}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>
