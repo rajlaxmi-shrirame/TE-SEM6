@@ -1,0 +1,21 @@
+<apex:page controller="ElectricityBillCalculator">
+    <apex:form>
+        <apex:pageBlock title="Calculate Electricity Bill">
+            <apex:pageBlockSection>
+                <apex:inputText value="{!unitsConsumed}" label="Units Consumed"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <apex:inputText value="{!perUnitRate}" label="Rate per Unit"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons>
+                <apex:commandButton action="{!calculateBill}" value="Calculate"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+        <apex:outputPanel rendered="{!totalBill != 0}">
+            <apex:pageBlock title="Result">
+                <apex:outputText value="Electricity Bill for {!unitsConsumed} units: ${!totalBill}"/>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>
